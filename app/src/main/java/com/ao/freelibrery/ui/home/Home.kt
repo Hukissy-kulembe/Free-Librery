@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Home
@@ -32,6 +34,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.ao.freelibrery.R
 import com.ao.freelibrery.ui.theme.FreeLibreryTheme
 
@@ -40,6 +43,9 @@ import com.ao.freelibrery.ui.theme.FreeLibreryTheme
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun Home() {
+
+    val itemsList = listOf(Livros(), Livros(), Livros(), Livros(), Livros(), Livros())
+
     Scaffold(
         modifier = Modifier,
         containerColor = Color.Black,
@@ -57,7 +63,7 @@ fun Home() {
                     Image(
                         painter = painterResource(id = R.drawable.ic_launcher_background),
                         contentDescription = "Settings",
-                        modifier = Modifier.size(50.dp).ci
+                        modifier = Modifier.size(50.dp)
                     )
                 },
                 actions = {
@@ -123,7 +129,7 @@ fun Home() {
                         Column(
                             modifier = Modifier,
                             horizontalAlignment = Alignment.CenterHorizontally
-                            ) {
+                        ) {
                             IconButton(
                                 onClick = {},
                                 modifier = Modifier,
@@ -160,8 +166,91 @@ fun Home() {
                 )
             }
         }
-    ) { paddingValues ->
+    ) { contentPadding ->
+        Column (
+            modifier = Modifier
+                .padding(contentPadding)
+        ){
+            Text(
+                text = "Ciência",
+                color = Color.White,
+                fontSize = 25.sp,
+                modifier = Modifier.padding(horizontal = 13.dp)
+            )
+            LazyRow(
+                modifier = Modifier.padding(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp) // Espaçamento entre os itens
+            ) {
+                // Supondo que você queira exibir 10 itens, mas isso pode ser baseado em dados dinâmicos
+                items(10) {
+                    Livros()
+                }
+            }
 
+            Text(
+                text = "Ficção",
+                color = Color.White,
+                fontSize = 25.sp,
+                modifier = Modifier.padding(horizontal = 13.dp)
+            )
+            LazyRow(
+                modifier = Modifier.padding(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp) // Espaçamento entre os itens
+            ) {
+                // Supondo que você queira exibir 10 itens, mas isso pode ser baseado em dados dinâmicos
+                items(10) {
+                    Livros()
+                }
+            }
+
+            Text(
+                text = "Romance",
+                color = Color.White,
+                fontSize = 25.sp,
+                modifier = Modifier.padding(horizontal = 13.dp)
+            )
+            LazyRow(
+                modifier = Modifier.padding(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp) // Espaçamento entre os itens
+            ) {
+                // Supondo que você queira exibir 10 itens, mas isso pode ser baseado em dados dinâmicos
+                items(10) {
+                    Livros()
+                }
+            }
+
+            Text(
+                text = "Mágia",
+                color = Color.White,
+                fontSize = 25.sp,
+                modifier = Modifier.padding(horizontal = 13.dp)
+            )
+            LazyRow(
+                modifier = Modifier.padding(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp) // Espaçamento entre os itens
+            ) {
+                // Supondo que você queira exibir 10 itens, mas isso pode ser baseado em dados dinâmicos
+                items(10) {
+                    Livros()
+                }
+            }
+
+            Text(
+                text = "Educação",
+                color = Color.White,
+                fontSize = 25.sp,
+                modifier = Modifier.padding(horizontal = 13.dp)
+            )
+            LazyRow(
+                modifier = Modifier.padding(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp) // Espaçamento entre os itens
+            ) {
+                // Supondo que você queira exibir 10 itens, mas isso pode ser baseado em dados dinâmicos
+                items(10) {
+                    Livros()
+                }
+            }
+        }
     }
 }
 
