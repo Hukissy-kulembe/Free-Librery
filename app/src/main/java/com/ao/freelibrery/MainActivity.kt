@@ -6,12 +6,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.ui.Modifier
-import com.ao.freelibrery.ui.home.Home
-import com.ao.freelibrery.ui.search.Search
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import com.ao.freelibrery.ui.Login
 
 import com.ao.freelibrery.ui.theme.FreeLibreryTheme
 
@@ -22,7 +19,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FreeLibreryTheme {
-                Scaffold {paddingValues ->
+                var navController: NavController
+                var startDestination = Login
+
+                NavHost(navController = navController, startDestination = startDestination) {
 
                 }
             }
